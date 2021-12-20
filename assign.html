@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {a: {b: 1}};
+        var obj1 = Object.assign({},obj);
+        obj.a.b = 2;
+        //assign 浅拷贝，如果某属性值是对象，则得到引用
+        console.log(obj1,'obj1'); //b:2
+        console.log(Object.assign({},obj));//复制对象
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组方法
+
+        // join 使用分隔符，将数组转换为字符串，不改变原数组
+        let arr = [1,2,3,4,99,10];
+        // console.log(arr,arr.join('='));
+        // 输出：[1,2,3,4,99,10] '1=2=3=4=99=10'
+
+        //toString 直接转为字符串，返回结果，不改变原数组
+        // console.log(arr,arr.toString());
+        // 输出：[1, 2, 3, 4, 99, 10] '1,2,3,4,99,10'
+
+        //pop 删除最后一位，返回删除的数据，改变原数组
+        // console.log(arr,arr.pop());
+        // 输出：[1, 2, 3, 4, 99] 10
+
+
+        //shift 删除第一位，返回删除的数据，改变原数组
+        // console.log(arr,arr.shift());
+        // 输出：[2, 3, 4, 99, 10] 1
+
+        //push 添加一个或多个数据，返回数组长度，改变原数组
+        // console.log(arr,arr.push(0,100));
+        // 输出：[1, 2, 3, 4, 99, 10, 0, 100] 8
+        
+        //unshift 在第一位添加一个或多个数据，返回数组长度，改变原数组
+        // console.log(arr,arr.unshift(0,0));
+        // 输出：[0, 0, 1, 2, 3, 4, 99, 10] 8
+
+        //concat 合并数组 并返回合并之后的数据，不改变原数组
+        // console.log(arr,[0,0].concat(arr));
+        // 输出：[1, 2, 3, 4, 99, 10]  [0, 0, 1, 2, 3, 4, 99, 10]
+
+        //slice 截取指定位置的数组，返回该数组，不改变原数组
+        // console.log(arr,arr.slice(1,3));
+        // 输出：[1, 2, 3, 4, 99, 10]  [2, 3]
+        // console.log(arr,arr.slice(-3,-1));
+        // 输出： [1, 2, 3, 4, 99, 10] [4,99]
+
+        //sort 排序，返回数组，改变原数组
+        // console.log(arr,arr.sort((a,b) => a-b));
+        // 输出：[1, 2, 3, 4, 10, 99] [1, 2, 3, 4, 10, 99]
+
+        //reverse反转数组，返回结果，改变原数组
+        // console.log(arr,arr.reverse());
+        // 输出：[10, 99, 4, 3, 2, 1] (6) [10, 99, 4, 3, 2, 1]
+
+        //splice 删除和添加袁术，返回删除的数组，改变原数组
+        // console.log(arr,arr.splice(1,2,'B'));
+        // 输出： [1, 'B', 4, 99, 10] (2) [2, 3]
+
+        //valueOf，返回数组对象的原始值
+        // console.log(arr.valueOf()==arr);
+
+        //indexOf, 返回数组的索引，不改变原数组
+
+        //反向查询,返回数组的索引
+        // console.log([1,2,3,4,4].lastIndexOf(4));
+
+        //forEach(function() {}),循环数组，每次循环中执行传入的回调函数,
+        let obj = {
+            a: 123
+        }
+        arr.forEach(function(){
+            console.log(this);
+        },obj)
+
+        //map遍历数组，每次循环是执行回调函数，根据回调函数的返回值，生成一个新的数组,不改变原数组
+        // let arrMap = arr.map((item) =>item+1);
+        // console.log(arr,arrMap);
+
+        // filter遍历数组，每次循环时执行传入的回调函数，回调函数返回一个条件，把满足条件的元素筛选出来放到新数组中，返回新数组，不改变原数组
+        // console.log(arr.filter(n => n>20),arr);
+
+        // every()判断数组中所有元素是否满足某个条件，全部满足返回true，否则false，不改变原数组
+        // console.log(arr.every(n => n>20),arr);
+
+        //some判断是否存在满足某个条件的元素，有就返回true，全部不满足就false
+        // console.log(arr.some(n => n>98),arr);
+        
+        //reduce 遍历数组，每次循环时执行传入的回调函数，回调函数会返回值，作为下一次回调函数的初始值，不改变原数组
+        // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+        // console.log(arr.reduce(n => n+2),arr);
+
+        // reduceRight,用法同reduce，只不过是从右向左
+
+        // includes判断数组是否包含一个指定的值，返回true，false
+        // console.log(arr.includes(1),arr);
+
+        // Array.from(),接收伪数组，返回数组
+
+        // find(),遍历数组，执行回调函数，回调函数接收一个条件，返回满足条件的第一个元素，不存在返回undefined
+        // console.log(arr.find(n => n>1),arr);
+
+        //findIndex(),遍历数组，执行回调函数，回调函数接收一个条件，返回满足条件的第一个元素的下标，不存在返回-1
+        
+        // fill，用给定值填充一个数组，返回新数组，不改变原数组array.fill(value, start, end)
+
+        // flat 用于将嵌套的数组拉平，变成一维的数组，返回新数组，不改变原数组
+        // console.log([[1,2,3],[1,2,3]].flat());
+
+        //flatMap()flat()和map()的组合版 , 先通过map()返回一个新数组,再将数组拉平( 只能拉平一次 )
+
+    </script>
+</body>
+</html>
