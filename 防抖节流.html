@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <div
-            style="width: 100px; height: 20000px; background-color: bisque"
-        ></div>
-        <script>
-            //防抖：设定一个计时器，在规定时间内停止触发时，执行函数，否则时间重置，只是最后停止时执行一次
-            //节流：设定一个计时器1，在规定时间内只执行一次，可能执行多次
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="width: 100px; height: 20000px; background-color: bisque"></div>
+    <script>
+      //防抖：设定一个计时器2，在规定时间内停止触发时，执行函数，否则时间重置，只是最后停止时执行一次
+      //节流：设定一个计时器，在规定时间内只执行一次，可能执行多次
 
-            //防抖
-            window.addEventListener('scroll', debounce(fn, 300))
-            function debounce(fn, time) {
-                let timeOut = null
-                return function () {
-                    clearTimeout(timeOut)
-                    timeOut = setTimeout(fn, time)
-                }
-            }
-            function fn() {
-                console.log('防抖')
-            }
+      //防抖
+      window.addEventListener("scroll", debounce(fn, 300))
+      function debounce(fn, time) {
+        let timeOut = null
+        return function () {
+          clearTimeout(timeOut)
+          timeOut = setTimeout(fn, time)
+        }
+      }
+      function fn() {
+        console.log("防抖")
+      }
 
-            //节流 原理是通过判断是否有延迟调用函数未执行
-            function fn1() {
-                console.log('节流')
-            }
-            window.addEventListener('scroll', throttle(fn1, 2000))
-            function throttle(fn, time) {
-                var loading = true;
-                return function () {
-                    if (!loading) return
-                    loading = false;
-                    setTimeout(() => {
-                        fn()
-                        loading = true
-                    }, time)
-                }
-            }
-        </script>
-    </body>
+      //节流 原理是通过判断是否有延迟调用函数未执行
+      function fn1() {
+        console.log("节流")
+      }
+      window.addEventListener("scroll", throttle(fn1, 2000))
+      function throttle(fn, time) {
+        var loading = true
+        return function () {
+          if (!loading) return
+          loading = false
+          setTimeout(() => {
+            fn()
+            loading = true
+          }, time)
+        }
+      }
+    </script>
+  </body>
 </html>
