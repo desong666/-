@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let promise = new Promise((res, rej) => {
+                console.log(0)
+                res('xxx')
+                rej(e)
+            })
+            promise
+                .then((val) => {
+                    console.log(1)
+                    console.log(val)
+
+                    throw new err()
+                })
+                .then(() => {
+                    setTimeout(() => {
+                        console.log(2)
+                    }, 0)
+                })
+                .then(() => {
+                    console.log(3)
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+                .then(() => {
+                    console.log('123')
+                })
+        </script>
+    </body>
+</html>

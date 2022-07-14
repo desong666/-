@@ -10,7 +10,7 @@
     <script>
         // 深拷贝 将各项值赋值给新数组或对象 而不是引用，
         function copy(data) {
-            if(typeof data == 'Array'){
+            if(data instanceof Array){
                 return data.map(n => copy(n))
             }else if(data && typeof data ==='object') {
                 return Object.entries(data).reduce((intValue,item) =>{

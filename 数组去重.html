@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let arr = [1, 2, 4, 6, 9, 0, 2, 3, 45, 3, 2, 4]
+            //1.创建一个新数组，放入第一个元素，依次比较，若不同则加入新的数组
+            function fn1(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    let res = [arr[0]]
+                    for (let i = 0; i < arr.length; i++) {
+                        let repeat = false
+                        for (let j = 0; j < res.length; j++) {
+                            if (arr[i] === res[j]) {
+                                repeat = true
+                                break
+                            }
+                        }
+                        if (!repeat) {
+                            res.push(arr[i])
+                        }
+                    }
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn1(arr))
+
+            //2.先将原数组排序，在与相邻的比较,若不同则存入新数组
+            function fn2(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    // srot()如果不带参数，是将按字母顺序对数组中的元素进行排序，也就是是按照字符编码的顺序进行排序。
+                    arr = arr.sort((a, b) => {
+                        return a - b
+                    })
+                    let res = [arr[0]]
+                    for (let i = 1; i < arr.length; i++) {
+                        if (arr[i] !== arr[i - 1]) {
+                            res.push(arr[i])
+                        }
+                    }
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn2(arr))
+
+            //3.利用对象属性的特性，如果没有该属性则存入数组
+            function fn3(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    let res = []
+                    let obj = {}
+                    for (let i = 0; i < arr.length; i++) {
+                        if (!obj[arr[i]]) {
+                            res.push(arr[i])
+                            obj[arr[i]] = true
+                        }
+                    }
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn3(arr))
+
+            //4.利用数组的indexOf下标来查询
+            function fn4(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    let res = []
+                    for (let i = 0; i < arr.length; i++) {
+                        if (res.indexOf(arr[i]) == -1) {
+                            res.push(arr[i])
+                        }
+                    }
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn4(arr))
+
+            //5.利用数组原型对象的includes方法
+            function fn5(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    let res = []
+                    for (let i = 0; i < arr.length; i++) {
+                        if (!res.includes(arr[i])) {
+                            res.push(arr[i])
+                        }
+                    }
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn5(arr))
+
+            //6.利用数组原型对象的includes和filter方法
+            function fn6(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    let res = []
+                    res = arr.filter((item) => {
+                        return res.includes(item) ? '' : res.push(item)
+                    })
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn6(arr))
+
+            //7.利用splice方法 依次遍历比较
+            function fn7(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+                    let len = arr.length
+                    for (let i = 0; i < len; i++) {
+                        for (let j = i + 1; j < len; j++) {
+                            if (arr[i] === arr[j]) {
+                                arr.splice(j, 1)
+                                j--
+                                len--
+                            }
+                        }
+                    }
+                    return arr
+                } else {
+                    return
+                }
+            }
+            console.log(fn7(arr))
+
+            //8.利用lastIndexOf
+            function fn8(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+
+                    let res = [arr[0]]
+                    for (let item of arr) {
+                        res.lastIndexOf(item) == -1 ? res.push(item) : ''
+                    }
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn8(arr))
+
+            //9.利用set
+            function fn9(arr) {
+                if (arr instanceof Array) {
+                    if (arr.length == 0) return []
+
+                    let res = Array.from(new Set(arr))
+                    return res
+                } else {
+                    return
+                }
+            }
+            console.log(fn9(arr))
+        </script>
+    </body>
+</html>
