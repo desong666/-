@@ -30,3 +30,8 @@
 eval("console.log(typeof '123')")
 console.log(eval("2+3"))
 console.log(eval("typeof new String(2+3)"))
+console.log(String(null))
+console.log(String(undefined))
+// console.log(toString(null))
+// console.log(toString(undefined))
+// null和undefined没有toString方法
